@@ -1,5 +1,7 @@
 import numpy as np
 import cv2
+
+
 def blur_face(image, factor=3.0):
 
 	(h, w) = image.shape[:2]
