@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 
-def anonymize_face_pixelate(image, blocks=3):
+def pixelate_face(image, blocks=3):
     (h, w) = image.shape[:2]
     x_steps = np.linspace(0, w, blocks + 1, dtype="int")
     y_steps = np.linspace(0, h, blocks + 1, dtype="int")

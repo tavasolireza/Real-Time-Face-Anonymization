@@ -9,7 +9,7 @@ arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument("-i", "--image", required=True,
                         help="path to input image")
 
-arg_parser.add_argument("-m", "--method", type=str, default="simple",
+arg_parser.add_argument("-m", "--method", type=str, default="blur",
                         choices=["simple", "pixelated"],
                         help="choose method for anonymizing")
 arg_parser.add_argument("-b", "--blocks", type=int, default=20,
@@ -42,7 +42,7 @@ for i in range(0, detections.shape[2]):
 
         face = image[y_start:y_end, x_start:x_end]
 
-        if args["method"] == "simple":
+        if args["method"] == "blur":
             face = bf.blur_face(face, factor=3.0)
         else:
             face = pf.pixelate_face(face,
