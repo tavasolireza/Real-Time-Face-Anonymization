@@ -10,7 +10,7 @@ arg_parser.add_argument("-i", "--image", required=True,
                         help="path to input image")
 
 arg_parser.add_argument("-m", "--method", type=str, default="blur",
-                        choices=["simple", "pixelated"],
+                        choices=["blur", "pixelated"],
                         help="choose method for anonymizing")
 arg_parser.add_argument("-b", "--blocks", type=int, default=20,
                         help="# of blocks for the pixelated blurring method")
