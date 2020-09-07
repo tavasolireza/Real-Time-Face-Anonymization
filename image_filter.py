@@ -41,15 +41,13 @@ for i in range(0, detections.shape[2]):
         (x_start, y_start, x_end, y_end) = box.astype("int")
 
         face = image[y_start:y_end, x_start:x_end]
-    else:
-        continue
 
-    if args["method"] == "simple":
-        face = bf.blur_face(face, factor=3.0)
-    else:
-        face = pf.pixelate_face(face,
-                                blocks=args["blocks"])
-    image[y_start:y_end, x_start:x_end] = face
+        if args["method"] == "simple":
+            face = bf.blur_face(face, factor=3.0)
+        else:
+            face = pf.pixelate_face(face,
+                                    blocks=args["blocks"])
+        image[y_start:y_end, x_start:x_end] = face
 
 anonymize_face = np.hstack([original_img, image])
 
